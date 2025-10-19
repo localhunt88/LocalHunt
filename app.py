@@ -24,4 +24,4 @@ app.register_blueprint(password_reset_bp)
 app.register_blueprint(profile_routes, url_prefix="/profile")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
