@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from routes.otp_routes import bp as otp_bp
 from routes.signup_routes import signup_bp
@@ -10,6 +10,11 @@ app = Flask(__name__)
 
 # Allow all frontend origins (fixes CORS error)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
+# ✅ Lightweight health-check / warm-up route
+@app.route("/ping")
+def ping():
+    return jsonify({"status": "ok"}), 200
 
 # Register blueprints
 app.register_blueprint(otp_bp)
