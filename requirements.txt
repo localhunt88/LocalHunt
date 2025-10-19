@@ -5,3 +5,4 @@ supabase
 requests
 bcrypt
 psycopg2-binary
+gunicorn
