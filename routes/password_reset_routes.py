@@ -66,7 +66,7 @@ def request_reset():
     except Exception as e:
         return jsonify({"success": False, "message": f"DB insert failed: {e}"}), 500
 
-    content = f"Your password reset code is: {otp} (valid for {OTP_EXPIRE_MINUTES} minutes)"
+    content = f"Your Localhunt password reset code is: {otp} (valid for {OTP_EXPIRE_MINUTES} minutes)"
     send_result = send_sms_with_fallback(phone, content)
 
     if send_result.get("success"):
