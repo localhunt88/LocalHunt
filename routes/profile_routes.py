@@ -82,7 +82,7 @@ def send_otp_current():
     otp_hash = hash_otp(phone, otp)
     otp_store[phone] = {"otp_hash": otp_hash, "timestamp": time.time()}
 
-    msg = f"Your confirmation code to verify your number is {otp}. It expires in {OTP_EXPIRE_MINUTES} minutes."
+    msg = f"Your Localhunt confirmation code to verify your number is {otp}. It expires in {OTP_EXPIRE_MINUTES} minutes."
     send_sms_with_fallback(phone, msg)
     return jsonify({"message": f"OTP sent to {phone}"}), 200
 
@@ -126,7 +126,7 @@ def send_otp_new():
         "vendor_id": vendor_id
     }
 
-    msg = f"Your confirmation code to update your number is {otp}. It expires in {OTP_EXPIRE_MINUTES} minutes."
+    msg = f"Your Localhunt confirmation code to update your number is {otp}. It expires in {OTP_EXPIRE_MINUTES} minutes."
     send_sms_with_fallback(new_phone, msg)
     return jsonify({"message": f"OTP sent to {new_phone}"}), 200
 
