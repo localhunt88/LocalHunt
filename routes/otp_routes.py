@@ -54,7 +54,7 @@ def send_otp():
         return jsonify({"success": False, "error": f"DB insert failed: {e}"}), 500
 
     # send SMS via sms_sender
-    content = f"Your confirmation code is: {otp} (valid for {OTP_EXPIRE_MINUTES} minutes)"
+    content = f"Your Localhunt confirmation code is: {otp} (valid for {OTP_EXPIRE_MINUTES} minutes)"
     send_result = send_sms_with_fallback(phone, content)
 
     if send_result.get("success"):
